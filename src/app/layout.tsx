@@ -20,7 +20,7 @@ export default function RootLayout({
 <ClerkProvider>
     <html lang="en">
     <body className={inter.className}>
-      <Navbar/>
+      
       <main className="container">
         <div className="flex items-start justify-center min-h-screen">
         <div className="mt-20">
