@@ -13,18 +13,19 @@ const Hero = (props: Props) => {
     }
     return (
         <div className='hero'>
-            <div className="flex-1  padding-x text-red">
+            <div className="hero__subDiv">
 <h1 className="hero__title">Book A car & Get A Ride Without Stressing</h1>
 <p className="hero__subtitle">You can now book your ride from any where in Cameroon without stressing.</p>
-<TaxiButton title="Explore Taxi" containerStyles="btn_taxi" handleClick={handleScroll}/>
+<TaxiButton title="Explore Taxi" containerStyles="btn_taxi btn__arrange" handleClick={handleScroll}/>
             </div>
 
             {/* OUR CAR IMAGE */}
-            <div className="hero__image-containe">
+            <div className="hero__image-container">
                 <div className="hero__image ">
-                    <Image src="/taxi.png" alt='hero' fill className='image-contain' />
-                    <div className="hero__image-overlay"></div>
+                    <Image src="/hero.png" alt='hero' fill className='image-contain' />
+                  
                 </div>
+                <div className="hero__image-overlay"></div>
             </div>
         </div>
     )

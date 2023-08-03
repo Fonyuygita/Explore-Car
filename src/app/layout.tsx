@@ -3,8 +3,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
+import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,15 +20,10 @@ export default function RootLayout({
   return (
 <ClerkProvider>
     <html lang="en">
-    <body className={inter.className}>
-      
-      <main className="container">
-        <div className="flex items-start justify-center min-h-screen">
-        <div className="mt-20">
+    <body className="relative ">
+      <Navbar/>
         {children}
-        </div>
-        </div>
-      </main>
+        <Footer/>
       </body>
   </html>
   </ClerkProvider>

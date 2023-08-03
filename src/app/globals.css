@@ -33,20 +33,24 @@
 }
 
 .custom-btn {
-  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+  @apply  flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
 }
 /* END: General styles */
 
 /* START: Hero styles */
 .hero {
-  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto ; 
+  @apply flex xl:flex-row flex-col  gap-5 relative z-0 max-w-[1440px] mx-auto ; 
+}
+
+.hero__subDiv {
+  @apply flex-1 flex flex-col padding-x pt-36 ; 
 }
 
 .hero__title {
-  @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
+  @apply 2xl:text-[32px] sm:text-[64px] text-[50px] font-extrabold;
 }
 .btn_taxi{
-@apply bg-primary-blue text-white rounded-full mt-10;
+@apply bg-primary-blue text-white rounded-full mt-10 ml-1 px-3 ;
 }
 .hero__subtitle {
   @apply text-[27px] text-black-100 font-light mt-5;
@@ -67,14 +71,74 @@
   @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
 }
 
+/* navbar styles */
+.navbar__header{
+
+  @apply w-full absolute z-10;
+}
+
+.navbar__nav{
+  @apply max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4;
+}
+.navbar__img{
+  @apply object-contain;
+}
+.navbar__link{
+  @apply flex justify-center items-center;
+}
+.btn__arrange{
+  @apply flex items-center p-3 justify-center;
+}
+.navbar__btn{
+  @apply text-primary-blue rounded-full bg-white min-w-[130px] ring-1 ring-blue-300 p-3 flex items-center  justify-center ;
+}
+.navbar__btn2{
+
+  @apply text-white rounded-full bg-blue-600 min-w-[130px] p-3 text-center;
+}
+.navbar__flex{
+  @apply flex gap-4 items-center justify-center;
+}
+
 /* END: Hero styles */
 
 /* START: Home styles */
+
+/* car choice header */
+.home__car-choice{
+  @apply mt-12 padding-x padding-y max-width;
+}
+.home__car-text-container{
+  @apply home__text-container;
+}
+.position__relative{
+  @apply relative;
+}
+.home__text{
+  @apply text-4xl font-extrabold;
+}
 
 .home__text-container {
   @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
 }
 
+.combobox__btn{
+  @apply absolute top-[14px]
+}
+.combobox__img{
+  @apply object-contain
+}
+/* active search options */
+.active-search__true{
+  @apply bg-primary-blue text-white;
+}
+.active-search__false{
+  @apply text-gray-900;
+}
+
+.combobox__first{
+@apply relative w-full;
+}
 .home__filters {
   @apply mt-12 w-full flex-between items-center flex-wrap gap-5;
 }
@@ -181,6 +245,16 @@
 
 .footer__link {
   @apply flex flex-col gap-6 text-base min-w-[170px];
+}
+
+.footer__p{
+  @apply text-base text-red-700;
+}
+.footer__h{
+  @apply font-bold mt-3;
+}
+.overflow__h{
+  @apply overflow-hidden;
 }
 
 .footer__copyrights {

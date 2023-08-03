@@ -4,11 +4,11 @@ import React from 'react'
 
 
 
-const TaxiButton = ({title, containerStyles, handleClick}:TaxiButtonProps) => {
+const TaxiButton = ({title, containerStyles, handleClick, btnType}:TaxiButtonProps) => {
     return (
         <button
         disabled={false}
-        type={"buton"}
+        type={btnType || "buton"}
         className={`custom-btn ${containerStyles}`}
         onClick={()=>{handleClick}}
         >
