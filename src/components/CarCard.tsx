@@ -2,8 +2,9 @@
 import { CarProps } from '@/types'
 import { calculateCarRent } from '@/utils';
 import Image from 'next/image';
-import React from 'react'
+import React, { useState } from 'react'
 import TaxiButton from './TaxiButton';
+import CarDetails from './CarDetails';
 
 
 interface CarCardProps {
@@ -11,14 +12,16 @@ interface CarCardProps {
 }
 
 const CarCard = ({car}:CarCardProps) => {
+    // OUR STATES HERE
+    const[isOpen, setIsOPen]=useState(false)
     // destructure our data for use now
     const  {city_mpg, year, make, model, transmission, drive}=car
     // get our calculated car rent
     const carRent=calculateCarRent(city_mpg, year)
     return (
-        <div>
+        <>
             <div className="car-card group">
-                <div className='.car-card__content'>
+                <div className='car-card__content'>
                     <h2 className='car-card__content-title'>{make}</h2>
                 </div>
                 <p className='card__para'>
@@ -31,11 +34,13 @@ const CarCard = ({car}:CarCardProps) => {
 
                 {/* fetching image from another source */}
                 <div className="card__img">
-                    <Image src="/hero.png" alt='' fill/>
+                    <Image src="/hero.png" alt='' fill priority className='object-contain'/>
                 </div>
 
                 {/* our icons and disappering btn ehrn hovered */}
                 <div className="relative flex w-full mt-2">
+
+
                     <div className="flex group-hover:invisible w-full justify-between text-gray">
                         <div className="flex flex-col justify-center items-center gap-2">
                       {/* image here */}
@@ -61,12 +66,18 @@ const CarCard = ({car}:CarCardProps) => {
                       </p>
                         </div>
                     </div>
+
+                    <div className='car-card__btn-container'>
+<TaxiButton title='View More' containerStyles='w-full rounded-full py-[12px] bg-primary-blue px-6' textStyle="text-white text-[14px] leading-17px font-bold" rightIcon="/right-arrow.svg" handleClick={()=>setIsOPen(true)}/>
                 </div>
-                <div className='car-card__btn-container'>
-<TaxiButton title='View More' containerStyles='w-full rounded-full py-[16px] bg-primary-blue' textStyle="text-white text-[14px] leading-17px font-bold" rightIcon="/right-arrow.svg"/>
+
                 </div>
+
+                {/* car details component to show our pop ups dialogue */}
+                <CarDetails isOpen={isOpen} closeModal={()=>setIsOPen(false)} car={car} />
+        
             </div>
-        </div>
+        </>
     )
 }
 

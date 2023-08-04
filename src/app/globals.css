@@ -100,6 +100,12 @@
   @apply flex gap-4 items-center justify-center;
 }
 
+/* my modal card styles */
+.icons__wrapper{
+  @apply relative flex w-full mt-2;
+}
+
+
 /* END: Hero styles */
 
 /* START: Home styles */

@@ -5,7 +5,7 @@ export interface TaxiButtonProps{
     containerStyles?:string;
     handleClick?: MouseEventHandler<HTMLButtonElement>;
     btnType?:"button" | "submit";
-    textStyles?:string;
+    textStyle?:string;
     rightIcon?:string;
     isDissable?:boolean;
 }
