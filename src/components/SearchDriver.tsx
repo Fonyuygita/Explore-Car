@@ -1,6 +1,8 @@
 "use client"
+
+
 import { DriversProps } from '@/types'
-import React, { Fragment, useState } from 'react'
+import React, {  useState } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 import Image from 'next/image'
 import { manufacturers } from '@/constants'
@@ -17,17 +19,21 @@ const SearchDriver = ({ driver, setDriver }: DriversProps) => {
 
     return (
         <div className='search-manufacturer'>
-            <Combobox>
+
+                    {/* _____COMBOBOX START___________________________ */}
+            <Combobox value={driver} onChange={setDriver}>
                 <div className="combobox__first">
+
                     {/* image */}
                     <Combobox.Button className="combobox__btn">
                         <Image src="/car-logo.svg" width={30} height={30} alt='driver image' className='combobox__img'/>
                     </Combobox.Button>
+
                     {/* input */}
-                    <Combobox.Input className="search-manufacturer__input" placeholder='Search driver___' displayValue={(driver: string) => { driver }} onChange={(e) => setQuery(e.target.value)} value={driver} />
+                    <Combobox.Input className="search-manufacturer__input" placeholder='Search driver___' displayValue={(driver: string) => driver } onChange={(e) => setQuery(e.target.value)}  />
 
                     {/*transition  */}
-                    <Transition as='Fragment'
+                    <Transition as="div"
                         leave='transition ease-in duration-100'
                         leaveFrom='opacity-100'
                         leaveTo='opacity-0'
@@ -44,9 +50,30 @@ const SearchDriver = ({ driver, setDriver }: DriversProps) => {
                             (
                                 filteredManufacturer.map((item) => (
                                     <Combobox.Option key={item}
-                                    className={({active})=>`position|__relative search-manufacturer_option ${active ? 'active-search__true' : 'active-search__false'}`} value={item}
+                                    className={({active})=>`position__relative search-manufacturer__option ${active ? 'active-search__true' : 'active-search__false'}`} value={item}
                                     >
-                                        {item}
+                                        {({selected, active})=>(
+                                            // code copied from headless ui .com
+                                            <>
+                                             <span
+                          className={`block truncate ${
+                            selected ? 'font-medium' : 'font-normal'
+                          }`}
+                        >
+                          {item}
+                        </span>
+                        {selected ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active ? 'text-white' : 'text-teal-600'
+                            }`}
+                          >
+                            
+                          </span>
+                        ) : null}
+
+                                            </>
+                                        )}
                                     </Combobox.Option>
                                 ))
 
@@ -57,6 +84,9 @@ const SearchDriver = ({ driver, setDriver }: DriversProps) => {
 
                 </div>
             </Combobox>
+
+                    {/* ____________COMBOBOX END____________________ */}
+
         </div>
     )
 }
