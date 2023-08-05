@@ -28,7 +28,7 @@ export async function fetchCars(){
       }
 
     //   make our request here
-    const response = await fetch("https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla", {headers:headers});
+    const response = await fetch("https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=q3", {headers:headers});
     const data=await response.json();
     console.log(data)
     return data;

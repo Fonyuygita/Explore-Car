@@ -13,7 +13,7 @@ const allCars=await fetchCars()
 const isItEmpty=!Array.isArray(allCars) || allCars.length>1 || !allCars;
 
   return (
-    <main className='overflow__h'>
+    <main className='overflow-hidden'>
       <Hero />
 
       {/* CAR CHOICE */}

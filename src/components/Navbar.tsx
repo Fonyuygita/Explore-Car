@@ -16,12 +16,12 @@ const Navbar = () => {
                 <Image src="/logo.svg" alt='car logo' width={118} height={18} className='navbar__img'/>
             </Link>
             <div className="navbar__flex">
-                <Link href="sign-in">
+                {/* <Link href="sign-in">
                 <TaxiButton title="Sign-In"btnType="button" containerStyles='navbar__btn2'/>
                 </Link>
                 <Link href="sign-up">
             <TaxiButton title="Sign-Up"btnType="button" containerStyles='navbar__btn'/>
-                </Link>
+                </Link> */}
                 <UserButton/>
             </div>
         </nav>
