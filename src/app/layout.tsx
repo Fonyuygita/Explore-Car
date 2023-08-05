@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
 <ClerkProvider>
     <html lang="en">
-    <body className="relative ">
+    <body className="relative">
       <Navbar/>
-        {children}
+      {children}
         <Footer/>
       </body>
   </html>

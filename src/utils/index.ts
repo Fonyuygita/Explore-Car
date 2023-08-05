@@ -1,5 +1,7 @@
 // const axios = require('axios');
 
+import { CarProps } from "@/types";
+
 // const options = {
 //   method: 'GET',
 // //   url: 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars',
@@ -33,6 +35,27 @@ export async function fetchCars(){
 
     }
 
+    //GET OUR CAR IMAGES HERE FROM.............
+    
+    export const getCarImages=(car:CarProps, angle?:string)=>{
+      // make our request here
+      const url=new URL('https://cdn.imagin.studio/getimage')
+
+      // destgructure some data from  car
+      const {make, year, model}=car;
+      // appending our url to our search params]
+      url.searchParams.append('customer', 'hrjavascript-mastery')
+      url.searchParams.append('make', make);
+      url.searchParams.append('modelFamily', model.split(' ')[0]);
+      url.searchParams.append('zoomType','fullScreen')
+      url.searchParams.append('modelYear', `${year}`)
+      url.searchParams.append('angle', `${angle}`)
+      
+      // return our url as a string
+      return `${url}`;
+
+    }
+
     // CALCULATE CRITERIA FOR OUR CAR RENT HERE
 
     export const calculateCarRent = (city_mpg: number, year: number) => {
@@ -50,3 +73,5 @@ export async function fetchCars(){
         return rentalRatePerDay.toFixed(0);
       };
       
+
+

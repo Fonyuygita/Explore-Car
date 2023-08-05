@@ -3,6 +3,7 @@ import CustomFilter from '@/components/CustomFilter'
 import Hero from '@/components/Hero'
 import SearchBar from '@/components/SearchBar'
 import { fetchCars } from '@/utils'
+import { SignIn } from '@clerk/nextjs'
 import Image from 'next/image'
 
 export default async function Home() {
@@ -30,7 +31,7 @@ const isItEmpty=!Array.isArray(allCars) || allCars.length>1 || !allCars;
             <CustomFilter title="car_type" />
           </div>
         </div>
-
+<SignIn/>
 
         {isItEmpty ? (
         <section>

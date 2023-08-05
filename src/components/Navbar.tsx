@@ -16,8 +16,13 @@ const Navbar = () => {
                 <Image src="/logo.svg" alt='car logo' width={118} height={18} className='navbar__img'/>
             </Link>
             <div className="navbar__flex">
-            <TaxiButton title="Sign-In"btnType="button" containerStyles='navbar__btn2'/>
+                <Link href="sign-in">
+                <TaxiButton title="Sign-In"btnType="button" containerStyles='navbar__btn2'/>
+                </Link>
+                <Link href="sign-up">
             <TaxiButton title="Sign-Up"btnType="button" containerStyles='navbar__btn'/>
+                </Link>
+                <UserButton/>
             </div>
         </nav>
        </header>

@@ -1,6 +1,6 @@
 "use client"
 import { CarProps } from '@/types'
-import { calculateCarRent } from '@/utils';
+import { calculateCarRent, getCarImages } from '@/utils';
 import Image from 'next/image';
 import React, { useState } from 'react'
 import TaxiButton from './TaxiButton';
@@ -34,7 +34,7 @@ const CarCard = ({car}:CarCardProps) => {
 
                 {/* fetching image from another source */}
                 <div className="card__img">
-                    <Image src="/hero.png" alt='' fill priority className='object-contain'/>
+                    <Image src={getCarImages(car)} alt='' fill priority className='object-contain'/>
                 </div>
 
                 {/* our icons and disappering btn ehrn hovered */}
