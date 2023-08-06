@@ -1,6 +1,6 @@
 // const axios = require('axios');
 
-import { CarProps } from "@/types";
+import { CarProps, searchParamsProps } from "@/types";
 
 // const options = {
 //   method: 'GET',
@@ -21,14 +21,17 @@ import { CarProps } from "@/types";
 
 // create our endpoint here and make our request
 
-export async function fetchCars(){
+export async function fetchCars(filter:searchParamsProps){
+
+  const {driver, year, fuel, limit, model}=filter
+
     const headers= {
         'X-RapidAPI-Key': 'a3ac747326msh1e6e85911e276fap1c4375jsne5cfab23fa8f',
         'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
       }
 
     //   make our request here
-    const response = await fetch("https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=q3", {headers:headers});
+    const response = await fetch(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${driver}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`, {headers:headers});
     const data=await response.json();
     console.log(data)
     return data;

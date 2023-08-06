@@ -30,3 +30,16 @@ model:string;
 transmission:string;
 year:number;
 }
+
+
+
+// searchParams props
+
+export interface searchParamsProps{
+    driver:string;
+    year:number;
+    fuel:string;
+    limit:number;
+    model:string
+
+}

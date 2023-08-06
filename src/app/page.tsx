@@ -6,8 +6,14 @@ import { fetchCars } from '@/utils'
 import { SignIn } from '@clerk/nextjs'
 import Image from 'next/image'
 
-export default async function Home() {
-const allCars=await fetchCars()
+export default async function Home({searchParams}:any) {
+const allCars=await fetchCars({
+  driver:searchParams.driver || "",
+  year:searchParams.year||2022,
+  fuel:searchParams.fuel || "",
+  limit:searchParams.limit || 10,
+  model:  searchParams.model || ""
+})
 
 // check if data is empty
 const isItEmpty=!Array.isArray(allCars) || allCars.length>1 || !allCars;
