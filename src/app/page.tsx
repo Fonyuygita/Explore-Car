@@ -2,6 +2,9 @@ import CarCard from '@/components/CarCard'
 import CustomFilter from '@/components/CustomFilter'
 import Hero from '@/components/Hero'
 import SearchBar from '@/components/SearchBar'
+import ShowMore from '@/components/ShowMore'
+import { fuels, yearsOfProduction } from '@/constants'
+import { CarProps } from '@/types'
 import { fetchCars } from '@/utils'
 import { SignIn } from '@clerk/nextjs'
 import Image from 'next/image'
@@ -33,8 +36,8 @@ const isItEmpty=!Array.isArray(allCars) || allCars.length>1 || !allCars;
         <div className="home__filters">
           <SearchBar />
           <div className="home__filter-container">
-            <CustomFilter title="name" />
-            <CustomFilter title="car_type" />
+            <CustomFilter title="fuel" options={fuels} />
+            <CustomFilter title="year" options={yearsOfProduction} />
           </div>
         </div>
 <SignIn/>
@@ -42,10 +45,11 @@ const isItEmpty=!Array.isArray(allCars) || allCars.length>1 || !allCars;
         {isItEmpty ? (
         <section>
           <div className="home__cars-wrapper">
-            {allCars.map((car)=>(
+            {allCars.map((car:CarProps)=>(
               <CarCard car={car}/>
             ))}
           </div>
+          <ShowMore pageNumber={(searchParams.limit || 10)/10} isNext={(searchParams.limit || 10) > allCars.length}/>
         </section>
 
       ): (

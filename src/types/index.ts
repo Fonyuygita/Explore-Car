@@ -43,3 +43,15 @@ export interface searchParamsProps{
     model:string
 
 }
+
+// custom filter and option props interfaces
+export interface OptionsProps{
+title:string;
+value:string;
+}
+
+// customfilter props
+export interface customFilterProps{
+    title:string;
+    options:OptionsProps[]
+} 
