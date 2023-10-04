@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import TaxiButton from './TaxiButton'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,6 +9,18 @@ interface Props {
 }
 
 const Hero = (props: Props) => {
+ 
+    const [jump, setJump] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timeout = setInterval(() => {
+      setJump(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+
     const handleScroll=()=>{
 
     }
@@ -26,7 +38,7 @@ const Hero = (props: Props) => {
             {/* OUR CAR IMAGE */}
             <div className="hero__image-container">
                 <div className="hero__image min-h-screen">
-                    <Image src="/hero.png " alt='hero' fill className='image-contain animate-bounce-once' />
+                    <Image src="/heroImage.png " alt='hero' fill className={`image-contain ${jump && "animate-bounce" } `} />
                   
                 </div>
                 <div className="hero__image-overlay"></div>

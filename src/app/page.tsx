@@ -8,12 +8,13 @@ import ShowMore from '@/components/ShowMore'
 import { fuels, yearsOfProduction } from '@/constants'
 import { CarProps } from '@/types'
 import { fetchCars } from '@/utils'
+import { useUser } from "@clerk/nextjs";
 
 import Image from 'next/image'
 
 export default async function Home({searchParams}:any) {
 
-
+ 
 
 const allCars=await fetchCars({
   driver:searchParams.driver || "",
@@ -28,7 +29,7 @@ const isItEmpty=!Array.isArray(allCars) || allCars.length>1 || !allCars;
 
 
   return (
-    <main className={`overflow-hidden}`}>
+    <main className="overflow-hidden overflow-x-auto">
       <Hero />
 
       {/* CAR CHOICE */}
