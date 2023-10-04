@@ -9,7 +9,7 @@ const TaxiButton = ({title, containerStyles, handleClick, btnType, textStyle, ri
     return (
         <button
         disabled={false}
-        type={btnType || "buton"}
+        type={btnType || "button"}
         className={`custom-btn ${containerStyles}`}
         onClick={handleClick}
         >

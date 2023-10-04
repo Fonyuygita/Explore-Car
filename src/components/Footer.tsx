@@ -14,7 +14,10 @@ const Footer = (props: Props) => {
             <div className="footer__links-container">
                 {/* logo */}
                 <div className="footer__rights ">
-                    <Image src="/logo.svg" alt='logo' width={118} height={18} className='navbar__img' />
+                <Link href="/" className='navbar__link flex flex-center justify-between  text-lg'>
+                <h2 className='font-bold text-blue-900'>E<span className=' text-[25px]'>X</span>PLORE</h2>
+                <Image src="/hero.png" alt='car logo' width={50} height={7} className='navbar__img'/>
+            </Link>
                     <p className='footer__p'>
                         TaxiHome 2023 <br /> All right Reserved &copy
                     </p>

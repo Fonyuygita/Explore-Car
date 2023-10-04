@@ -1,17 +1,11 @@
-import React from 'react'
-import { SignUp } from '@clerk/nextjs'
-
-interface Props {
+// import { SignIn } from "@clerk/nextjs";
+import { SignUp } from "@clerk/nextjs/app-beta";
+ 
+export default function Page() {
+  return (
+    <div className="flex justify-center h-screen flex-center">
+  <SignUp />;
+  </div>
+  )
     
 }
-
-const page = (props: Props) => {
-    return (
-        <div className='flex items-center justify-center flex-col mt-5 mx-auto  '>
-            <h1 className='text-dark font-bold text-3xl'>S</h1>
-            <SignUp/>
-        </div>
-    )
-}
-
-export default page

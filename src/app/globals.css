@@ -11,6 +11,15 @@
   font-family: "Manrope", sans-serif;
 }
 
+.light{
+  background-color: white;
+  color: #111;
+}
+.dark{
+  background-color: #111;
+  color: #bbb;
+}
+
 /* START: General styles */
 .max-width {
   @apply max-w-[1440px] mx-auto;

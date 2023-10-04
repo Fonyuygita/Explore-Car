@@ -43,7 +43,7 @@ const SearchDriver = ({ driver, setDriver }: DriversProps) => {
                         {/* map through our filtered information */}
                         {filteredManufacturer.length === 0 && query !== "" ? (
                             <Combobox.Option value={query} className="search-manufacturer__options">
-                                Create "{query}"
+                                {/* Create "{query}!" */}
                             </Combobox.Option>
                         ) :
                             // else part, if the data exist, then we want to map

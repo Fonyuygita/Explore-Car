@@ -38,7 +38,7 @@ const CustomFilter = ({title, options}:customFilterProps) => {
             }}
             >
           <div className="relative w-fit z-10">
-            <Listbox.Button className="custom-filter__btn">
+            <Listbox.Button className="custom-filter__btn ">
                 {/* show what is selected */}
            <span className='block truncate'>{selected.title}</span>
            <Image
@@ -46,7 +46,7 @@ const CustomFilter = ({title, options}:customFilterProps) => {
            width={20}
            height={20}
            alt='chevron'
-           className='ml-4 object-contain'
+           className='ml-4 object-contain ]'
            />
             </Listbox.Button>
 

@@ -1,15 +1,20 @@
+
 import CarCard from '@/components/CarCard'
 import CustomFilter from '@/components/CustomFilter'
+import  { useContext } from "react";
 import Hero from '@/components/Hero'
 import SearchBar from '@/components/SearchBar'
 import ShowMore from '@/components/ShowMore'
 import { fuels, yearsOfProduction } from '@/constants'
 import { CarProps } from '@/types'
 import { fetchCars } from '@/utils'
-import { SignIn } from '@clerk/nextjs'
+
 import Image from 'next/image'
 
 export default async function Home({searchParams}:any) {
+
+
+
 const allCars=await fetchCars({
   driver:searchParams.driver || "",
   year:searchParams.year||2022,
@@ -21,8 +26,9 @@ const allCars=await fetchCars({
 // check if data is empty
 const isItEmpty=!Array.isArray(allCars) || allCars.length>1 || !allCars;
 
+
   return (
-    <main className='overflow-hidden'>
+    <main className={`overflow-hidden}`}>
       <Hero />
 
       {/* CAR CHOICE */}
@@ -40,12 +46,13 @@ const isItEmpty=!Array.isArray(allCars) || allCars.length>1 || !allCars;
             <CustomFilter title="year" options={yearsOfProduction} />
           </div>
         </div>
-<SignIn/>
+
 
         {isItEmpty ? (
         <section>
           <div className="home__cars-wrapper">
             {allCars.map((car:CarProps)=>(
+              // eslint-disable-next-line react/jsx-key
               <CarCard car={car}/>
             ))}
           </div>
